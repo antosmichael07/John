@@ -2,8 +2,8 @@ class Player {
     constructor () {
         this.x = 0
         this.y = 0
-        this.width = 84
-        this.height = 132
+        this.width = 70
+        this.height = 110
         this.cameraX = canvas.width / 2 - this.width / 2
         this.cameraY = canvas.height / 2 - this.height / 2
         this.speed = 1.5
