@@ -11,5 +11,5 @@ function clearBackground(color) {
 }
 
 function drawRelativeToPlayer(image, x, y) {
-    c.drawImage(image, x - player.x + 600, y - player.y + 320)
+    c.drawImage(image, x - player.x + 598, y - player.y + 294)
 }
