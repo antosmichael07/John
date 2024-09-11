@@ -1,7 +1,11 @@
 const canvas = document.getElementById("canvas")
 const c = canvas.getContext("2d")
 
+let frameTime = Date.now()
+
 function main() {
+    frameTime = (Date.now() - frameTime) / 1000
+
     player.update()
 
     clearBackground("white")
@@ -10,6 +14,7 @@ function main() {
 
     player.draw()
 
+    frameTime = Date.now()
     requestAnimationFrame(main)
 }
 

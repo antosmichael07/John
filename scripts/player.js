@@ -1,17 +1,18 @@
 class Player {
     constructor () {
         this.x = 0
-        this.y = 0
+        this.z = 0
         this.width = 70
         this.height = 110
+        this.depth = 10
         this.cameraX = canvas.width / 2 - this.width / 2
-        this.cameraY = canvas.height / 2 - this.height / 2
-        this.speed = 1.5
-        this.diagonalSpeed = 1.060
-        this.sprintSpeed = 2.5
-        this.diagonalSprintSpeed = 1.767
+        this.cameraY = canvas.height / 2 - this.height / 2 + 5
+        this.speed = 210
+        this.diagonalSpeed = 148.47
+        this.sprintSpeed = 330
+        this.diagonalSprintSpeed = 233.31
         this.xVelocity = 0
-        this.yVelocity = 0
+        this.zVelocity = 0
         this.image = loadImage("./resources/textures/player.png")
     }
 
@@ -21,15 +22,15 @@ class Player {
 
     movement() {
         this.xVelocity = 0
-        this.yVelocity = 0
+        this.zVelocity = 0
         let moveKeysPressed = 0
 
         if (keyInputs["KeyW"]) {
-            this.yVelocity -= 1
+            this.zVelocity -= 1
             moveKeysPressed++
         }
         if (keyInputs["KeyS"]) {
-            this.yVelocity += 1
+            this.zVelocity += 1
             moveKeysPressed++
         }
         if (keyInputs["KeyA"]) {
@@ -42,19 +43,19 @@ class Player {
         }
 
         if (!keyInputs["ShiftLeft"]) {
-            this.move(moveKeysPressed, this.speed, this.diagonalSpeed)
+            this.move(moveKeysPressed, this.speed * frameTime, this.diagonalSpeed * frameTime)
         } else {
-            this.move(moveKeysPressed, this.sprintSpeed, this.diagonalSprintSpeed)
+            this.move(moveKeysPressed, this.sprintSpeed * frameTime, this.diagonalSprintSpeed * frameTime)
         }
     }
 
     move(moveKeysPressed, speed, diagonalSpeed) {
         if (moveKeysPressed != 2) {
             this.x += this.xVelocity * speed
-            this.y += this.yVelocity * speed
+            this.z += this.zVelocity * speed
         } else {
             this.x += this.xVelocity * diagonalSpeed
-            this.y += this.yVelocity * diagonalSpeed
+            this.z += this.zVelocity * diagonalSpeed
         }
     }
 
