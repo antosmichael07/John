@@ -9,7 +9,3 @@ function clearBackground(color) {
     c.fillStyle = color
     c.fillRect(0, 0, canvas.width, canvas.height)
 }
-
-function drawRelativeToPlayer(image, x, y) {
-    c.drawImage(image, x - player.x + 605, y - player.z + 305)
-}
